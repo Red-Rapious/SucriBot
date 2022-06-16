@@ -1,6 +1,10 @@
 from random import randrange
 
-def exo_aleatoire():
+def exo_aleatoire() -> str : 
+    """ 
+    Fonctionnalité BETA visant à générer sur demande un exercice aléatoire issu des TDs
+    et à l'afficher, formaté en LaTeX, pour l'utilisateur l'ayant demandé
+    """
     latex = open("fichiers/tex/TD25.tex")
 
     texte = latex.read()

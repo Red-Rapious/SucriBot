@@ -36,7 +36,7 @@ async def log(message, notify_admin=False): # écrit un message dans le fichier 
   log_file.close()
 
 
-def surnom(g,idd): # retourne le surnom discord plutôt que le pseudo (eg Ajay Probst au lieu de pa1n)
+def surnom(g,idd) -> str: # retourne le surnom discord plutôt que le pseudo (eg Ajay Probst au lieu de pa1n)
     for m in g.members:
         if m.id == idd:
             if m.nick is None:
@@ -45,13 +45,13 @@ def surnom(g,idd): # retourne le surnom discord plutôt que le pseudo (eg Ajay P
                 return m.nick
     return "Problème"
 
-def pluriel(m): # trivial
+def pluriel(m) -> str: # trivial
     if m>1:
         return "s"
     else:
         return ""
         
-def pluriel2(m): # trivial
+def pluriel2(m) -> str: # trivial
     if m>1:
         return "élèves sont présents"
     else:
