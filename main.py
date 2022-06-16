@@ -19,10 +19,10 @@ admin_id=313264206621179906 # id de l'admin, RedRapious
 serveur_id=882700982218268773 #id du serveur
 tdgrp1_id = 882700982235062325 # TD grp 1
 eleve_id  = 882700982247641172 # rôle élève
-tokennn='ODk3NTAzMTUxNTQ3MDk3MTI4.YWWm8g.DO_7_7ey-U4kmTMvW43lRTPchYU'  # https://discord.com/developers/applications/
-
 general_sans_profs = 882700982574792758 # id du channel general_sans_profs
-tag_eleves = "<@&882700982247641172>"
+tag_eleves = "<@"+eleve_id+">"
+
+tokennn='ODk3NTAzMTUxNTQ3MDk3MTI4.YWWm8g.DO_7_7ey-U4kmTMvW43lRTPchYU'  # https://discord.com/developers/applications/
 
 pause_vacances = True # si pause_vacances est activé, il n'y aura pas de rappel de livres
 
