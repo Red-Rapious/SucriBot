@@ -1,7 +1,3 @@
-# Développé par 
-# - Ajay "pa1n" Probst (2020-2021)
-# - Antoine "Red Rapious" Groudiev (2021-2022)
-
 import discord
 from os import path
 from discord import NotFound
