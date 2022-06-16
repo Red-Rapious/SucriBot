@@ -12,7 +12,7 @@ client = discord.Client(intents=intents)
 
 admin_id = bot_config.ADMIN_ID
 serveur_id = bot_config.SERVEUR_ID
-eleve_id  = bot_config.ElEVES_ID
+eleve_id  = bot_config.ELEVES_ID
 general_sans_profs = bot_config.GENERAL_SANS_PROFS_ID
 tokennn = bot_config.TOKEN
 
