@@ -25,13 +25,16 @@ Second, copy and past the following IDs in the beggining of the `main.py` file:
 - admin_id: the ID of the bot's owner
 - serveur_id: the ID of the MPSI2 discord server
 - tdgrp1_id: the ID of the group of the first TD
-- eleve_id: the ID of the `Eleves` role
+- eleve_id: the ID of the `Elèves` role
 - general_sans_profs: the ID of the channel (usually `général-sans-profs') where the bot will post the french books reminders
 
 ## Contributors
 - **pa1n**: initial creator of the bot in 2020
 - **[Red Rapious](https://github.com/Red-Rapious)**: developper of the bot since september 2021
 - **[marilabs](https://github.com/marilabs)**: illustrator of the wonderful logo which can be found in the ressources, and usually used as a profile picture for the bot
+
+## Illustration
+![Sucri logo](ressources/sucri_logo.jpeg)
 
 ## License
 This work is licensed under the [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
