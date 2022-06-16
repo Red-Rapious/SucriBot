@@ -2,3 +2,4 @@ __pycache__
 .breakpoints
 poetry.lock
 fichiers
+.DS_Store
