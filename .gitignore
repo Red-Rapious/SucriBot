@@ -2,3 +2,4 @@ __pycache__
 .DS_Store
 logs.txt
 poetry.lock
+bot_config.py
