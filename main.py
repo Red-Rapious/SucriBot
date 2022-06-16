@@ -1,24 +1,20 @@
 import discord
 from os import path
-from discord import NotFound
 import asyncio
 import emoji
-from webserver import keep_alive
 import datetime
+from webserver import keep_alive
 from exo_aleatoire import exo_aleatoire
-
+import bot_config
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
-admin_id=313264206621179906 # id de l'admin, RedRapious
-serveur_id=882700982218268773 #id du serveur
-tdgrp1_id = 882700982235062325 # TD grp 1
-eleve_id  = 882700982247641172 # rôle élève
-general_sans_profs = 882700982574792758 # id du channel general_sans_profs
-tag_eleves = "<@"+eleve_id+">"
-
-tokennn='ODk3NTAzMTUxNTQ3MDk3MTI4.YWWm8g.DO_7_7ey-U4kmTMvW43lRTPchYU'  # https://discord.com/developers/applications/
+admin_id = bot_config.ADMIN_ID
+serveur_id = bot_config.SERVEUR_ID
+eleve_id  = bot_config.ElEVES_ID
+general_sans_profs = bot_config.GENERAL_SANS_PROFS_ID
+tokennn = bot_config.TOKEN
 
 pause_vacances = True # si pause_vacances est activé, il n'y aura pas de rappel de livres
 
@@ -42,16 +38,10 @@ def surnom(g,idd) -> str: # retourne le surnom discord plutôt que le pseudo (eg
     return "Problème"
 
 def pluriel(m) -> str: # trivial
-    if m>1:
-        return "s"
-    else:
-        return ""
+  return "s" if m>1 else ""
         
 def pluriel2(m) -> str: # trivial
-    if m>1:
-        return "élèves sont présents"
-    else:
-        return "élèves est présent"
+  return "élèves sont présents" if m>1 else "élève est présent"
             
 def voyelle(m): # pour éviter d'avoir "Le mail de Isabelle Séguret..." au lieu de "Le mail d'Isabelle Séguret..."
     if (m.lower())[0] in ["a","e","y","u","i","o","h"]:
@@ -99,7 +89,7 @@ async def reaction(idd,emos): #fonction pour mettre un emote avec l'id d'un mess
             try:
                 msgg = await channel.fetch_message(idd)
                 await client.wait_until_ready()
-            except NotFound:
+            except discord.NotFound:
                 continue
     #emojis=["\U0001F44D"]
     for emo in emos:
@@ -161,13 +151,13 @@ async def rappel_livres(): # tag les élèves vers 19h tous les lundi et mardi p
       today = datetime.datetime.now()
       if not message_send and (today.hour+decalage) == 19 and today.strftime("%A") == "Monday":
         channel = client.get_channel(general_sans_profs)
-        await channel.send(":books: " + tag_eleves + ", n\'oubliez pas vos livres de français ! :books:")
+        await channel.send(":books: " + "<@" + eleve_id + ">"  + ", n\'oubliez pas vos livres de français ! :books:")
         await log("rappel à tous des livres de français")
         message_send = True
 
       """if not message_send and (today.hour+decalage) == 19 and today.strftime("%A") == "Tuesday":
         channel = client.get_channel(general_sans_profs)
-        await channel.send(":books: " + tag_eleves + ", n\'oubliez pas vos livres de français si vous avez TD ! :books:")
+        await channel.send(":books: " + "<@" + eleve_id + ">"  + ", n\'oubliez pas vos livres de français si vous avez TD ! :books:")
         await log("rappel au groupe de TD des livres de français")
         message_send = True"""
 
