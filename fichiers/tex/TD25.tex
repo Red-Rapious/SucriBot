@@ -1,0 +1,670 @@
+%% LyX 2.3.6.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[french]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm,headheight=1cm,headsep=1cm,footskip=1cm}
+\pagestyle{headings}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\setlength{\parindent}{0bp}
+\usepackage{latexsym}
+\usepackage{fancybox}
+\usepackage{calc}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{esint}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+\newcommand{\lyxadded}[3]{#3}
+\newcommand{\lyxdeleted}[3]{}
+
+\AtBeginDocument{
+  \def\labelitemi{\(\Box\)}
+  \def\labelitemii{\(\bullet\)}
+  \def\labelitemiii{\(\odot\)}
+  \def\labelitemiv{\(\circ\)}
+}
+
+\makeatother
+
+\usepackage{babel}
+\makeatletter
+\addto\extrasfrench{%
+   \providecommand{\og}{\leavevmode\flqq~}%
+   \providecommand{\fg}{\ifdim\lastskip>\z@\unskip\fi~\frqq}%
+}
+
+\makeatother
+\begin{document}
+\include{nc2021}
+
+\noindent\ovalbox{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 0.8pt}%
+%
+\end{minipage}}
+
+\ouverture{TD25}{Lundi 10 avril}
+
+\nex {\large{}$\heartsuit$} Une suite récurrente $u$ vérifiant
+$u_{n+2}=12.u_{n}-u_{n+1}$ pour tout $n$ reste de signe constant.
+Montrez que c'est une suite géométrique, et calculez $u_{100}/u_{5}$.\\
+
+\nex Est il possible de choisir $a$ réel pour que les suites récurrentes
+``$u_{n+2}=a.u_{n+1}-u_{n}$ pour tout $n$'' soient toutes périodiques
+de période $9$ ? \\
+Est il possible de choisir $a$ et $b$ rationnels pour que les suites
+récurrentes ``$u_{n+2}=a.u_{n+1}+b.u_{n}$ pour tout $n$'' soient
+toutes périodiques de période $12$ ? \\
+
+Est il possible de choisir $a$ et $b$ irrationnels pour que les
+suites récurrentes ``$u_{n+2}=a.u_{n+1}+b.u_{n}$ pour tout $n$''
+soient toutes périodiques de période $12$ ? \\
+Est-il possible de choisir $a$, $b$, $c$ et $d$ réels pour que
+dans le couple $(u,\ v)$ de suites vérifiant $\left\{ \begin{array}{cccc}
+u_{n+1} & = & a.u_{n} & +b.v_{n}\\
+v_{n+1} & = & c.u_{n} & +d.v_{n}
+\end{array}\right|$ pour tout $n$, la suite $u$ soit périodique de période $6$. \\
+Montrez que si $u$ est périodique, alors $v$ l'est aussi.\\
+
+\nex Si \texttt{\textbf{L}} est une liste, on définit \\
+\fbox{\begin{minipage}[b][1\totalheight][t]{0.6\columnwidth}%
+\texttt{\textbf{\small{}def lambyaucaramel(L) :}}~\\
+\texttt{\textbf{\small{}....n = len(L)}}~\\
+\texttt{\textbf{\small{}....M = {[}0 for k in range(n){]} for i in
+range(n){]}}}~\\
+\texttt{\textbf{\small{}....for i in range(n-1) :}}~\\
+\texttt{\textbf{\small{}........M{[}i{]}{[}i{]}, M{[}i{]}{[}i+1{]},
+M{[}i+1{]}{[}i{]} = L{[}i{]}, -1, 1}}~\\
+\texttt{\textbf{\small{}....M{[}n-1{]},{[}n-1{]} = L{[}-1{]}}}~\\
+\texttt{\textbf{\small{}....return(M)}}%
+\end{minipage}}%
+\begin{minipage}[b][1\totalheight][t]{0.38\columnwidth}%
+$\dsp\frac{1}{L[-1]+\dsp\frac{1}{L[-2]+\dsp\frac{1}{L[-3]+\dsp\frac{1}{\ldots+\dsp\frac{1}{L[0]}}}}}$%
+\end{minipage}\\
+Comparez \texttt{\textbf{det(L)/det(L{[}:-1{]})}} et la fraction continuée
+écrite à droite \emph{\small{}(et appelée à tort ``}{\small{}fraction
+continue}\emph{\small{}'' dans certains livres)}.\\
+
+\nex $\heartsuit$ $u_{0}$ donné. $u_{n+1}=3.Arcsin(u_{n})/\pi$.
+Discuter.\\
+
+\nex Montrez que $x\associe\sqrt{x}$ est lipschitzienne sur $[1,\ +\infty[$
+\emph{\small{}(sans utiliser un théorème sur la dérivée)}.\\
+
+\nex $\heartsuit$ Montrez que l'application $x\associe x^{2}$ est
+lipschitzienne sur tout segment \emph{\small{}(en revenant à la définition,
+et non pas en majorant la dérivée)}.\\
+
+\nex On rappelle que pour un emprunt d'une somme de $S$ euros au
+taux $\tau$ \footnote{le taux $\tau$, voilà une blague !} d'une
+durée de $n$ mois avec des mensualités d'un montant $\mu$, on a
+les formules suivantes : \\
+$\mu=\dsp\frac{\tau.S}{1-(1+\tau)^{-n}}$ et $n=\dsp-\frac{\ln\Big(1-\dsp\frac{\tau.S}{\mu}\Big)}{\ln(1+\tau)}$
+\emph{\small{}(redémontrez les)}.\\
+Donnez les limites de ces quantités quand $\tau$ tend vers $0$.
+Est ce cohérent ?\\
+
+\nex $u_{n+1}=u_{n}+\dsp\frac{1+u_{n}}{1+2.u_{n}}$. Vous savez ce
+qu'il vous reste à faire.\\
+
+\nex Vérifiez $\sqrt{n!}\ll n^{n/2}\ll n!\ll n^{n}$ quand $n$ tend
+vers l'infini (utilisez le lemme classique).\\
+
+\nex Classez les suites qui suivent pour les relation $\sim$ \emph{\small{}(équivalent)},
+$\ll$ \emph{\small{}(négligeable)} et $O$ \emph{\small{}(quotient
+borné)}.\\
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+$(\ln(n))^{n}$ & $(\log(n))^{n}$ & $n^{\ln(n)}$ & $\log(n^{n})$ & $\log_{n}(n)$\tabularnewline
+\hline 
+\hline 
+$\log_{\ln(n)}(n)$ & $n^{\log(n)}$ & $\ln(n^{n})$ & $n^{\ln(n)/n}$ & $(\log_{n}(n))^{n}$\tabularnewline
+\hline 
+\end{tabular}\\
+\emph{\small{}$\ln$ est le logarithme népérien. $\log$ est le logarithme
+de base $10$. $\ln_{a}$ est le logarithme de base $a$.}\\
+
+\nex $u_{0}$ est entre $0$ et $1$, et $u_{n+1}=\dsp\frac{\sqrt{u_{n}}}{\sqrt{u_{n}}+\sqrt{1-u_{n}}}$.
+Étudiez la suite.\\
+
+\nex En quels points du graphe de l'application $x\associe\dsp\frac{x-1}{x+3}$
+la tangente au graphe passe-t-elle par l'origine du repère ?\\
+
+\nex $\heartsuit$ On définit $u_{0}<0$ et $u_{n+1}=e^{u_{n}}-1$.
+Montrez que $(u_{n})$ est négative. Montrez que $(u_{n})$ est croissante.
+Montrez que $(u_{n}(u)$ converge et calculez sa limite.\\
+On définit $u_{0}>0$ et $u_{n+1}=e^{u_{n}}-1$. Montrez que $(u_{n})$
+est positive. Montrez que $(u_{n})$ est croissante. Montrez que $(u_{n})$
+ne peut pas converger. Concluez.\\
+
+\nex Un réel $\alpha$ est dit adhérent à une partie $A$ de $\R$
+si et seulement si il existe une suite $(a_{n})$ de points de $A$
+qui converge vers $\alpha$. Montrez que tout point de $A$ est adhérent
+à $A$. Qui sont les points adhérents à $\Z$ ?\\
+Montrez que tout points adhérent à $A$ est adhérent à $A\cup B$.
+Montrez que tout point adhérent à $A\cup B$ est adhérent à $A$ ou
+adhérent à $B$ {\small{}(d'une suite $(c_{n})$}\emph{\small{}, ne
+gardez soit que les points de $A$ ou soit que les points de $B$)}.\\
+Montrez par un contre-exemple que l'on peut être adhérent à $A$ et
+à $B$ sans être adhérent à $A\cap B$.\\
+
+\nex On rappelle les définitions :\\
+{\large{}}%
+\begin{tabular*}{1\columnwidth}{@{\extracolsep{\fill}}|c|c|c|}
+\hline 
+{\large{}$\mathring{A}$} & {\large{}intérieur de $A$} & {\large{}$a\in\mathring{A}\Leftrightarrow(\exists\alpha>0,\ [a-\alpha,\ a+\alpha]\subset A)$}\tabularnewline
+\hline 
+\hline 
+{\large{}$\overline{A}$} & {\large{}adhérence de $A$} & {\large{}$c\in\overline{A}\Leftrightarrow(\forall\alpha>0,\ [c-\alpha,\ c+\alpha]\cap A\neq\emptyset$}\tabularnewline
+\hline 
+\end{tabular*}\\
+
+Complétez %
+\begin{tabular*}{0.85\columnwidth}{@{\extracolsep{\fill}}|c|c|c|c|c|}
+\hline 
+$A$ & $]0,\ 1]$ & $\Q$ & $([0,\ 1]\cap\Q\cup([1,\ 2]\cap(\R-\Q))$ & $\Z\cup]0,\ 1[$\tabularnewline
+\hline 
+\hline 
+$\mathring{A}$ & $]0,\ 1[$ & $\emptyset$ &  & $]0,\ 1[$\tabularnewline
+\hline 
+$\overline{A}$ & $[0,\ 1]$ & $\R=]-\infty,\ +\infty[$ &  & $\Z\cup]0,\ 1[$\tabularnewline
+\hline 
+$\mathring{\overline{A}}$ & $]0,\ 1[$ & $\R$ &  & $]0,\ 1[$\tabularnewline
+\hline 
+$\overline{\mathring{A}}$ & $[0,\ 1]$ & $\emptyset$ &  & $[0,\ 1]$\tabularnewline
+\hline 
+$\overline{A}-\mathring{A}$ & $\{0,\ 1\}$ & $\R$ &  & $\Z$\tabularnewline
+\hline 
+\end{tabular*}\\
+Trouvez un ensemble pour lequel les six lignes sont toutes distinctes.\\
+\fbox{\begin{minipage}[t]{0.98\columnwidth}%
+Pourquoi est ce que je ne demande rien sur $\overline{\overline{A}}$
+ni sur $\mathring{\mathring{A}}$ ?%
+\end{minipage}}\\
+Montrez que le complémentaire de l'intérieur de $A$ est l'adhérence
+du complémentaire de $A$.\\
+Trouvez une phrase avec complémentaire de l'adhérence.\\
+
+Lesquelles sont vraies \\
+{\small{}}%
+\begin{tabular}{cccccc}
+{\small{}l'adhérence} & {\small{}de la réunion de A est B} & {\small{} est la réunion} & {\small{}de l'adhérence de $A$ et de l'adhérence de $B$} &  & \tabularnewline
+{\small{}l'adhérence} & {\small{}de l'intersection de A est B} & {\small{} est l'intersection} & {\small{}de l'adhérence de $A$ et de l'adhérence de $B$} &  & \tabularnewline
+{\small{}l'intérieur} & {\small{}de la réunion de A est B} & {\small{} est la réunion} & {\small{}de l'intérieur de $A$ et de l'intérieur de $B$} &  & \tabularnewline
+{\small{}l'intérieur} & {\small{}de l'intersection de A est B} & {\small{} est l'intersection} & {\small{}de l'intérieur de $A$ et de l'intérieur de $B$} &  & \tabularnewline
+\end{tabular}{\small{}}\\
+
+\nex On définit, pour $f$ continue de $[0,\ 1]$ dans $\R$ : \\
+\begin{tabular}{|c|c|c|}
+\hline 
+$N_{1}(f)=\dsp\int_{0}^{1}|f(t)|.dt$ & $N_{2}(f)=\dsp\sqrt{\int_{0}^{1}(f(t))^{2}.dt}$ & $N_{\infty}(f)=Sup\{|f(t)|.dt|\ t\in[0,\ 1]\}$\tabularnewline
+\hline 
+\end{tabular}\\
+Calculez ces trois normes pour les applications suivantes : $t\associe t^{n}$,
+$\exp$, $t\associe\sin(\pi.t)$.\\
+Montrez : $N_{1}\leqslant N_{\infty}$(c'est à dire $\forall f,\ N_{1}(f)\leqslant N_{\infty(f)}$),
+$N_{2}\leqslant N_{\infty}$ et $N_{1}\leqslant N_{2}$ (là, il faut
+penser à quelquechose, ou à quelqu'un ou à quelques uns).\\
+L'application $f\associe|f(0)|+N_{1}(f')$ est elle une norme sur
+$C_{1}([0,\ 1],\R)$ (les applications dérivables à dérivée continue).\\
+
+\nex %
+\begin{minipage}[b][1\totalheight][t]{0.48\columnwidth}%
+Pour tout $n$, on pose $f_{n}=x\associe Arctan((n+1).x)-Arctan(n.x)$.
+Montrez (non, sans en revenir aux $\varepsilon$) que chaque $f_{n}$
+est continue de même que chaque $\dsp\sum_{n=0}^{N}f_{n}$ (notée
+$F_{N}$). Montrez que $F_{\infty}$ (notation abusive) n'est pas
+continue en $0$.\\
+Sinon, que pensez vous de $x\associe x^{n}$ sur $[0,\ 1]$ ?\\
+Ou $x\associe\sin(x))^{2.n}$ sur $\R$ tout entier ?%
+\end{minipage}%
+\begin{minipage}[b][1\totalheight][t]{0.5\columnwidth}%
+\includegraphics[width=1\columnwidth,bb = 0 0 200 100, draft, type=eps]{imageExercices22_1.png}%
+\end{minipage}\\
+
+\nex Une entreprise fabrique et vend des bloukfons. Le coût de fabrication
+est de $20$ euros pièce. Elle les vend $40$ euros. Chaque mois,
+elle en vend $10.000$. Calculez son bénéfice net. Elle constate quand
+même que chaque fois qu'elle baisse le prix de vente de dix centimes
+d'euros, elle en vend $100$ de plus par mois. Quel sera le prix optimal
+de vente pour maximiser son bénéfice ? Et c'est quoi un bloukfon ?\\
+
+\nex{\large{} $\heartsuit$} Montrez que si $f$ est lipschitzienne
+de $[0,\ 1]$ dans $\R^{+*}$ alors $1/f$ l'est aussi \emph{\small{}(il
+faudra penser à introduire $Inf(f(x)\ |\ x\in[0,\ 1])$)}.\\
+
+\nex $\heartsuit$ On définit $f=x\associe\exp([\ln(x)])$. Prolongez
+la par continuité en $0$ (encadrement, pas d'epsilon). Est elle alors
+dérivable ?\\
+Calculez $\dsp\int_{0}^{1}f(t).dt$.\\
+
+\nex On travaille avec les entiers de $0$ à $16$ pour l'addition
+et la multiplication modulo $17$. \\
+Complétez %
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+$a$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & $11$ & $12$ & $13$ & $14$ & $15$ & $16$\tabularnewline
+\hline 
+\hline 
+inverse de $a$ & {*} & {*} & {*} & $13$ & {*} &  & $5$ &  &  & {*} &  & {*} & {*} & {*} & {*} & {*}\tabularnewline
+\hline 
+\end{tabular}\\
+Complétez $\left(\begin{array}{ccc}
+2 & 4 & *\\
+1 & * & 3\\
+* & 1 & *
+\end{array}\right)$ pour que ce soit l'inverse de $\left(\begin{array}{ccc}
+7 & 2 & 2\\
+15 & 5 & 16\\
+16 & 2 & 0
+\end{array}\right)$.\\
+Calculez le déterminant de $\left(\begin{array}{ccc}
+7 & 2 & 2\\
+15 & 5 & 16\\
+16 & 2 & 0
+\end{array}\right)$ en utilisant la formule $\dsp\sum_{\sigma\in S_{n}}Sgn(\sigma).a_{1}^{\sigma(1)}\ldots a_{n}^{\sigma(n)}$.\\
+Résolvez l'équation $\left\{ \begin{array}{ccccc}
+7.a & +2.b & +2.c & = & 2\\
+15.a & +5.b & +16.c & = & 1\\
+16.a & +2.b &  & = & 4
+\end{array}\right|$.\\
+
+\nex Montrez que si $f$ continue de $\R$ dans $\R$ vérifie $\dsp\int_{-1}^{1}f(t).dt=0$
+alors elle admet au moins un point fixe \emph{\small{}(on pourra étudier
+$f-Id$ sur $[-1,\ 1]$ et montrer qu'elle ne peut pas rester de signe
+constant)}.\\
+
+\nex %
+\begin{minipage}[b][1\totalheight][t]{0.55\columnwidth}%
+Placez aux huit sommets d'un cube les entiers de 1 à 8.\\
+Il faut ensuite que pour chaque face, le produit des quatre entiers
+aux quatre coins de la face soit la valeur imposée sur le patron du
+développement du cube ci contre :%
+\end{minipage}\texttt{\textbf{\LARGE{}}}%
+\begin{minipage}[b][1\totalheight][t]{0.4\columnwidth}%
+$.\quad$ \texttt{\textbf{\LARGE{}}}%
+\begin{tabular}{c|c|cc}
+\cline{2-2} 
+ & \texttt{\textbf{\LARGE{}280}} &  & \tabularnewline
+\hline 
+\multicolumn{1}{|c|}{\texttt{\textbf{\LARGE{}96}}} & \texttt{\textbf{\LARGE{}1344}} & \multicolumn{1}{c|}{\texttt{\textbf{\LARGE{}420}}} & \multicolumn{1}{c|}{\texttt{\textbf{\LARGE{}30}}}\tabularnewline
+\hline 
+ & \texttt{\textbf{\LARGE{}144}} &  & \tabularnewline
+\cline{2-2} 
+\end{tabular}%
+\end{minipage}\texttt{\textbf{\LARGE{}}}~\\
+
+\nex Soit $f$ une application continue de $\R$ dans $\R$. On suppose
+que $f$ n'a pas de point fixe et vérifie $f(0)>0$. Montrez : $\forall x\in\R,\ f(x)>x$.
+Déduisez $\forall x\in\R,\ f(f(x))>x$. Déduisez le résultat suivant
+: si $g\circ g$ admet au moins un point fixe, alors $g$ admet au
+moins un point fixe.\\
+
+\nex %
+\begin{minipage}[b][1\totalheight][t]{0.48\columnwidth}%
+Soit $f$ une application de classe $C^{1}$ de $[a,\ b]$ dans $\R$.
+La longueur de l'arc de la courbe représentative de $f$ est donnée
+par la formule $\dsp\int_a^b\sqrt{1+(f'(t))^2}.dt$ \emph{\small{}(que
+l'on ne justifiera que plus tard dans l'année et qui était donnée
+et admise aussi dans le sujet de concours }\footnote{\emph{\small{}C.C.P filière PSI 2014}}\emph{\small{}
+dont je me suis ici inspiré)}. Vérifiez la formule pour $f=t\associe\alpha.t$
+sur le segment $[a,\ b]$.\\
+Vérifiez la formule pour $f=t\associe\sqrt{1-t^{2}}$ sur le segment
+$[-1/2,\ 1/2]$ puis sur un segment $[a,\ b]$ inclus dans $[-1,\ 1]$.%
+\end{minipage}%
+\begin{minipage}[b][1\totalheight][t]{0.48\columnwidth}%
+\includegraphics[width=1\columnwidth,bb = 0 0 200 100, draft, type=eps]{imageDS4_1.png}%
+\end{minipage}\\
+Calculez la longueur du graphe du cosinus hyperbolique sur $[0,\ 1]$.\\
+Calculez la longueur du graphe de $t\associe t^{2}$ sur $[0,\ 1]$
+\emph{\small{}(vous serez amené(e) à effectuer un changement de variable
+hyperbolique)}.\\
+\begin{minipage}[b][1\totalheight][t]{0.48\columnwidth}%
+Pour tout $n$, on note $L_{n}$ la longueur de l'arc de $x\associe x^{n}$
+entre $0$ et $1$. Donnez la forme intégrale de cette longueur. Calculez
+$L_{1}$ et $L_{2}$.\\
+Émettez une conjecture sur la limite de $L_{n}$ quand $n$ tend vers
+l'infini.%
+\end{minipage}%
+\begin{minipage}[b][1\totalheight][t]{0.48\columnwidth}%
+\includegraphics[width=1\columnwidth,bb = 0 0 200 100, draft, type=eps]{imageDS04_4.png}%
+\end{minipage}\\
+On pose pour tout $n$ $\varphi_{n}=t\associe\dsp\frac{1}{\sqrt{1+n^{2}.t^{2.n-2}}+n.t^{n-1}}$,
+$\mu_{n}=\dsp\int_{0}^{1}\varphi_{n}(t).dt$. Montrez alors $L_{n}=n.\dsp\int_{0}^{1}t^{n-1}.dt+\mu_{n}$.\\
+Montrez : $\mu_{n}\leqslant1$ et $L_{n}<2$ pour tout $n$. Pour
+tout $n$, on pose $a_{n}=e^{-2.\frac{\ln(n)}{n-1}}$. \\
+Montrez : $\forall t\in[0,\ a_{n}],\ \varphi_{n}(t)\geqslant\dsp\frac{1}{\sqrt{1+\dsp\frac{1}{n^{2}}}+\dsp\frac{1}{n}}$.
+Déduisez $\mu_{n}\geqslant\dsp\frac{a_{n}}{\sqrt{1+\dsp\frac{1}{n^{2}}}+\dsp\frac{1}{n}}$.\\
+Montrez par encadrement que la suite $(\mu_{n})$ admet pour limite
+$1$ quand $n$ tend vers l'infini. Validez alors votre conjecture.\\
+\trait %
+\begin{minipage}[b][1\totalheight][t]{0.48\columnwidth}%
+Montrez pour $f$ $C^{1}$ de $[0,\ 1]$ dans $\R$, croissante et
+vérifiant $f(0)=0$ et $f(1)=1$, alors la longueur du graphe de $f$
+est entre $1$ et $2$ \emph{(indication : $\sqrt{1+a^{2}}$ contre
+$1+a$)}.%
+\end{minipage}%
+\begin{minipage}[b][1\totalheight][t]{0.48\columnwidth}%
+\\
+\includegraphics[width=1\columnwidth,bb = 0 0 200 100, draft, type=eps]{imageDS04_5.png}%
+\end{minipage}\\
+\trait %
+\begin{minipage}[b][1\totalheight][t]{0.48\columnwidth}%
+On prend l'application $t\associe1/t$ \emph{\small{}(arc d'hyperbole)}.
+Le segment sera $[1/2,\ 1]$. Donnez l'expression intégrale de la
+longueur \emph{\small{}(mais ne la calculez pas)}.\\
+Montrez que c'est aussi la longueur du graphe sur $[1,\ 2]$ \emph{\small{}(justifiez
+par changement de variable et aussi par un argument géométrique)}.%
+\end{minipage}%
+\begin{minipage}[b][1\totalheight][t]{0.48\columnwidth}%
+\includegraphics[width=1\columnwidth,bb = 0 0 200 100, draft, type=eps]{imageDS04_3.png}%
+\end{minipage}\\
+
+\nex Le théorème de convergence logarithmique dit \og soit $(a_{n})$
+une suite, on suppose que $\Big(\dsp\frac{a_{n+1}}{a_{n}}\Big)$ converge
+vers une une limite $\lambda$ dans $[0,\ 1[$, on déduit que $(a_{n})$
+converge vers $0$\fg . Un élève dont je tairai le nom\footnote{à vous d'eninventer un qui fasse un mauvais calembour}
+a inventé une réciproque. Montrez qu'il a tort. Et dites moi qui c'est.\\
+Mais si $(a_{n})$ est monotone ?\\
+
+\nex 
+
+Faux : si $u_{n}$ tend vers $a$ quand $n$ tend vers l'infini, alors
+$u_{n+1}.u_{n+2}\ldots u_{2n}$ tend vers $a^{n}$ quand $n$ tend
+vers $+\infty$.\\
+Vrai ou faux : si $u_{n}$ tend vers $a>1$ quand $n$ tend vers l'infini,
+alors $u_{n+1}.u_{n+2}\ldots u_{2n}$ est équivalent à $a^{n}$ quand
+$n$ tend vers $+\infty$.\\
+
+\nex Algorithme de Borchardt celui trigonométrique : on donne $0<a_{0}<b_{0}$
+, puis pour tout $n$ de $\N$ : $a_{n+1}=\dsp\frac{a_{n}+b_{n}}{2}$
+et $b_{n+1}=\sqrt{a_{n+1}.b_{n}}$. \\
+(a) Montrer que $(a_{n})$ et $(b_{n})$ sont convergentes de même
+limite, que l’on notera $\lambda$. \\
+(b) On pose $q_{n}=\dsp\frac{a_{n}}{b_{n}}$ ; vérifiez : $q_{n+1}=\sqrt{\dsp\frac{1+q_{n}}{2}}$.\\
+(c) Déduisez $a_{n}=b_{n}.\cos(\alpha/2^{n})$ où $\alpha$ est une
+mesure angulaire que vous définirez , puis $b_{n}=\dsp\frac{b_{0}.\sin(\alpha)}{2^{n}.\sin(\alpha/2^{n})}$
+. \\
+(d) Déduisez : $\lambda=\dsp\frac{b_{0}.\sin(\alpha)}{\alpha}=\frac{\sqrt{b_{0}^{2}-a_{0}^{2}}}{Arccos(b_{0}/a_{0})}$
+et $(b_{n}-a_{n})\sim_{n\rightarrow+\infty}b_{0}.\alpha.\sin(\alpha).2^{-2n-1}$
+. \\
+(e) Que vaut donc $\lambda$ dans le cas $a_{0}=1/2$ et $b_{0}=1/\sqrt{2}$
+?\\
+
+\nex $\clubsuit$ On définit : $f=x\associe2-|3.x-2|$ et $g=x\associe[x]+f(x-[x])$.
+Représentez $f$ et $g$. Montrez que $g$ est continue et lipschitzienne.\\
+\begin{minipage}[b][1\totalheight][t]{0.62\columnwidth}%
+Montrez que pour tout $\lambda$ réel l'équation $g(x)=\lambda$ d'inconnue
+$x$ a exactement trois solutions.\\
+Montrez qu'il n'existe pas d'application $h$ continue de $\R$ dans
+$\R$ telle que pour tout réel $\lambda$ l'équation $h(x)=\lambda$
+ait exactement deux solutions.%
+\end{minipage}%
+\begin{minipage}[b][1\totalheight][t]{0.37\columnwidth}%
+~~\includegraphics[width=6cm,height=4cm,bb = 0 0 200 100, draft, type=eps]{imageTD18_5.png}%
+\end{minipage}\\
+
+\nex Petit quiz très formateur.\\
+si $f$ est %
+\begin{tabular}{|c|}
+\hline 
+\tabularnewline
+\hline 
+\end{tabular} sur $]-\infty,\ 0]$ et sur $[0,\ +\infty[$ alors elle l'est aussi
+sur tout $\R$.\\
+Quels mots pouvez mettre dans le cadre : %
+\begin{tabular}{|c|c|c|}
+\hline 
+croissante & continue & monotone\tabularnewline
+\hline 
+\hline 
+bornée & continue à droite & lipschitzienne\tabularnewline
+\hline 
+\end{tabular}\\
+Donnez un argument, ou sinon un contre-exemple.\\
+
+Même question avec \og si $f$ est %
+\begin{tabular}{|c|}
+\hline 
+\tabularnewline
+\hline 
+\end{tabular} sur $]-\infty,\ 0]$ et sur $]0,\ +\infty[$ alors elle l'est aussi
+sur tout $\R$\fg . (pas pareil...)\\
+
+\nex $\heartsuit$ Une application est dite lilipschitzienne si il
+existe $K$ vérifiant $\forall(x,y),\ |f(x)-f(y)|\pp k.|x-y|^{2}$.
+Montrez que les applications lilipschitziennes ont une dérivée nulle.
+Déduisez que l'ensemble des applications lilipschiztiennes de $\R$
+dans $\R$ est un espace vectoriel de dimension $1$.\\
+
+\nex $\heartsuit$ Soit $f$ continue de $\R$ dans $\R$ admettant
+une limite en $+\infty$ et en $-\infty$. Montrez que $f$ est bornée.\\
+La méthode astucieuse consistera à définition $\varphi=\theta\associe f(\tan(\theta))$
+sur $]-\pi/2,\ \pi/2[$ et même si possible $]-\pi/2,\ \pi/2[$.\\
+
+\nex $\spadesuit$ $n$ est un entier naturel ; résolvez l'équation
+$z^{2.n}+1=0$ \emph{\small{}(en passant par $z=r.e^{i.\theta}$)}
+puis factorisez $(X^{2.n}+1)$ dans $\C$.\\
+On pose $f_{x}=\theta\associe\ln(x^{2}-2.x.\cos(\theta)+1)$ \emph{\small{}($x$
+est un réel fixé de $]1,\ +\infty[$)}. Montrez que $f_{x}$ est intégrable
+sur $[0,\ \pi]$.\\
+Exprimez grâce à la première question la somme de Riemann milieu de
+$f_{x}$ pour l'équisubdivision de $[0,\ \pi]$.\\
+Déduisez : $\dsp\int_{0}^{\pi}\ln(x^{2}-2.x.\cos(\theta)+1).d\theta=2.\pi.\ln(x)$.\\
+Calculez $\dsp\int_{0}^{\pi}\ln(x^{2}-2.x.\cos(\theta)+1).d\theta$
+pour $x$ dans $]-\infty,\ -1[$ (indication : $t=\pi-\theta$).\\
+Calculez $\dsp\int_{0}^{\pi}\ln(x^{2}-2.x.\cos(\theta)+1).d\theta$
+pour $x$ dans $]-1,\ 1[$.\\
+Vérifiez que $\dsp x\associe\int_{0}^{\pi}\ln(x^{2}-2.x.\cos(\theta)+1).d\theta=2.\pi.\ln(x)$
+admet la même limite à droite et à gauche en $1$, dont on estimera
+que c'est la valeur de $\dsp\int_{0}^{\pi}\ln(1^{2}-2.1.\cos(\theta)+1).d\theta$.
+Calculez alors $\dsp\int_{0}^{\pi}\ln(\sin(t)).dt$.\\
+
+\nex En quels point la dérivée de $x\associe|\ln(|x|)|$ est elle
+discontinue ?\\
+
+\nex Parmi ces trois applications, combien sont lipschitziennes sur
+$\R$ \\
+\begin{tabular}{|c|c|c|}
+\hline 
+$x\associe x^{2}$ & $x\associe Arctan(x)$ & $x\associe Arctan(x^{2})$\tabularnewline
+\hline 
+\hline 
+\includegraphics[width=4.7cm,height=2.3cm,bb = 0 0 200 100, draft, type=eps]{imagemardi21_1.png} & \includegraphics[width=4.7cm,height=2.3cm,bb = 0 0 200 100, draft, type=eps]{imagemardi21_2.png} & \includegraphics[width=4.7cm,height=2.3cm,bb = 0 0 200 100, draft, type=eps]{imagemardi21_3.png}\tabularnewline
+\hline 
+\end{tabular}\\
+
+\nex Qui, de $\theta\associe\sin(\tan(\theta))$ et $\theta\associe\tan(\sin(\theta))$
+est lipschitzienne sur $]-\pi/2,\ \pi/2[$ ?\\
+
+\nex Montrez que l'image d'une suite de Cauchy par une application
+lipschitzienne est une suite de Cauchy.\\
+
+\nex Montrez que $x\associe\cos(x)$ et $x\associe\cos(\sqrt{2}.x)$
+sont périodiques. \\
+On suppose que $x\associe\cos(x)+\cos(\sqrt{2}.x)$ est périodique
+de période $p$. Montrez alors $\cos(p)+\cos(\sqrt{2}.p)=2$. Déduisez
+$\cos(p)=1$ et $\cos(\sqrt{2}.p)=1$. Concluez.\\
+
+\nex $\heartsuit$ Montrez que si $f$ est lipschitzienne de $]-\infty,\ 0]$
+dans $\R$ (rapport $H$) et de $[0,\ +\infty[$ dans $\R$ (rapport
+$K$) alors elle l'est de $\R$ dans $\R$.\\
+
+\nex Montrez que si $f$ est lipschitzienne de $\R$ dans $\R$,
+alors $|f|$ l'est aussi.\\
+Montrez que $x\associe(-1)^{[x]}$ n'est pas lipschitzienne de $\R$
+dans $\R$ mais que sa valeur absolue l'est aussi.\\
+
+On suppose $|f|$ lipschitzienne de $\R$ dans $\R$ (rapport $K$),
+et continue.\\
+On se donne $a$ et $b$. Montrez que si $f(a)$ et $f(b)$ sont de
+même signe, alors on a $|f(b)-f(a)|\leqslant K.|b-a|$.\\
+On les suppose cette fois de signes opposés. Montrez qu'il existe
+$c$ entre $a$ et $b$ vérifiant $f(c)=0$. Montrez alors \\
+$|f(b)-f(a)|\leqslant|f(b)|+|f(a)|\leqslant K.|c-b|+K.|c-a|\leqslant K.|b-a|$.\\
+Concluez : $f$ est à son tour lipschitzienne.\\
+
+\nex Construire une suite qui admet une sous-suite strictement croissante
+de limite $1$ et une sous-suite strictement décroissante de limite
+$0$.\\
+
+\nex $\heartsuit$ Montrez que $x\associe\tan(x)$ est lipschitzienne
+de $[-\pi/3,\ \pi/3]$ dans $\R$ mais pas de $[0,\ \pi/2[$ dans
+$\R$ (on pourra montrer que sinon, elle serait bornée).\\
+
+\nex Montrez que $x\associe x.\sin(x)$ est lipschitzienne sur chaque
+segment $[-a,\ a]$. Montrez qu'elle n'est pas lipschitzienne sur
+$\R$.\\
+\includegraphics[width=0.49\columnwidth,bb = 0 0 200 100, draft, type=eps]{imageTD20_4.png}
+\includegraphics[width=0.49\columnwidth,bb = 0 0 200 100, draft, type=eps]{imageTD20_5.png}
+\\
+Et pour $x\associe x.\sin(\sqrt{x})$ ?\\
+
+\nex Montrez que si $f$ et $[f]$ sont lipschitziennes de $\R$
+dans $\R$, alors $f$ est bornée (raisonnez, n'écrivez pas plein
+de formules).\\
+
+\nex Montrez que $x\associe\cos(e^{x})$ n'est pas lipschitzienne
+(étudiez le taux d'accroissement entre $\ln(k.\pi)$ et $\ln((k+1).\pi)$
+pour $k$ entier).\\
+
+\nex Montrez que l'application tangente est lipschitzienne sur $[-a,\ a]$
+pour $a$ strictement plus petit que $\pi/2$ \emph{\small{}(sans
+dériver, mais en pensant à $\dsp\frac{\sin(b-a)}{\cos(b).\cos(a)}$)}.\\
+Lipschitzienne sur $I$ c'est $\exists K\in\R^{+},\ \forall(x,\ y)\in I^{2},\ |f(x)-f(y)|\leqslant K.|x-y|$.\\
+Au fait, quelles applications vérifient $\exists K\in\R^{+},\ \forall(x,\ y)\in I^{2},\ |f(x)-f(y)|<K.|x-y|$
+?\\
+
+\nex $\heartsuit$ Montrez que $\ln\Big(\dsp\frac{1+2/k^{2}}{1+1/k^{2}}\Big)$
+est équivalent à $\dsp\frac{1}{k^{2}}$ quand $k$ tend vers l'infini.
+Déduisez que le produit $\dsp\prod_{k=0}^{n}\frac{k^{2}+1}{k^{2}+2}$
+admet une limite quand $n$ tend vers l'infini. Écrivez un script
+\texttt{\textbf{Python}} qui calcule la valeur approchée de ce produit
+pour $n$ égal à $100$.\\
+Qu'en est il du produit $\dsp\prod_{k=0}^{n}\frac{k+1}{k+2}$ ?\\
+
+\nex Pour tout $n$, on note $a_{n}$ la solution dans $]0,\ +\infty[$
+de l'équation $\ln(x)=n.\pi+Arctan(x)$ (existence ? unicité ?).\\
+Montrez que la suite $(a_{n})$ est croissante et tend vers $+\infty$.\\
+Montrez que la série de terme général $(a_{n})_{n\geqslant0}$ diverge.\\
+
+\nex $\heartsuit$ Résolvez $z+\overline{z}=|z|$ d'inconnue $z$
+dans $\C$.{\tiny{}Paques05}\\
+
+\nex La suite $(u_{n})$ est définie par $\sqrt{n+1}-\sqrt{n}=\dsp\frac{1}{2.\sqrt{n+u_{n}}}$.
+Donnez sa limite quand $n$ tend vers l'infini.\\
+
+\nex $A$ et $B$ sont deux sous espaces vectoriels de $(E,+,.)$
+(espace de dimension finie) vérifiant $A+B=E$.\\
+Montrez qu'il existe %
+\begin{tabular}{cccc}
+$C$ & sous espace vectoriel de $A$ & vérifiant & $C\oplus B=E$\tabularnewline
+$D$ & sous espace vectoriel de $D$ & vérifiant & $A\oplus D=E$\tabularnewline
+\end{tabular}.\\
+Que pouvez vous dire si $C+D=E$ ?\\
+
+\nex $f$ et $g$ sont deux applications continues de $\R^{+}$ dans
+$\R$. On suppose $f(x)\sim_{x\rightarrow+\infty}g(x)$ \emph{\small{}(au
+fait, pour un demi point déjà, ça veut dire quoi ?)}. Lesquelles de
+ces affirmations sont alors vraies : \\
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+A & si & $f$ est bornée & alors & $g$ est bornée\tabularnewline
+\hline 
+B & si & $f$ est dérivable en tout point & alors & $g$ est dérivable en tout point\tabularnewline
+\hline 
+C & si & $f$ est positive en tout point & alors & $g$ est positive en tout point\tabularnewline
+\hline 
+D & si & $f$ est périodique & alors & $g$ est périodique à partir d'un certain réel\tabularnewline
+\hline 
+E & si & $f$ est croissante & alors & $g$ est croissante\tabularnewline
+\hline 
+F & si & $f$ est lipschitzienne & alors & $g$ est lipschitzienne\tabularnewline
+\hline 
+\end{tabular}{\tiny{}Compil2018}\\
+
+\nex $\heartsuit$ Montrez que la probabilité que \texttt{\textbf{randrange(1,
+626)}} soit un carré parfait est de $\dsp\frac{1}{25}$.\\
+Quelle est la probabilité que \texttt{\textbf{randrange(1, 626){*}{*}2}}
+soit un carré parfait ?\\
+Quelle est la probabilité que \texttt{\textbf{randrange(1, 626){*}randrange(1,
+626)}} soit un carré parfait ? (exploitez Python si nécessaire pour
+dénombrer).\\
+
+\trait\nqp On note $E$ l'ensemble des applications lipschitziennes
+de $[0,\ 1]$ dans $\R$. Montrez que $(E,+,.)$ est un espace vectoriel.\\
+\nq Montrez que $f\associe||f||$ est une norme sur m(E,+,.) , sachant
+que l'on pose $||f||=Sup(|f(t)|\ |\ t\in[0,\ 1])$.\\
+\begin{minipage}[t]{0.98\columnwidth}%
+N est une norme sur $(F,+,.)$ où $F$ est un espace vectoriel \\
+\begin{minipage}[b][1\totalheight][t]{0.26\columnwidth}%
+{\scriptsize{}Le mnémotechnique pour retenir cette liste, c'est ``Sophie
+a perdu son haut'' si vous reprenez l'idée de François-Xavier il
+y a déjà dix huit ans de ça, et si vous voulez j'ai des photos de
+la Sophie en question.}%
+\end{minipage} %
+\noindent\begin{minipage}[b][1\totalheight][t]{0.71\columnwidth}%
+\begin{tabular}{|c|c|c|}
+\hline 
+E & {\small{}Existence} & {\small{}pour tout $\overrightarrow{u}$ de $E$, $N(\overrightarrow{u})$
+existe}\tabularnewline
+\hline 
+P & {\small{}Positivité} & {\small{}$\forall\overrightarrow{u}\in E,\ N(\overrightarrow{u})\geqslant0$}\tabularnewline
+\hline 
+S & {\small{}Séparation} & {\small{}}%
+\begin{minipage}[t]{0.5\columnwidth}%
+{\small{}$\forall\overrightarrow{u}\in E,\ \overrightarrow{u}\neq\overrightarrow{0}\Rightarrow N(\overrightarrow{u})>0$
+}\\
+{\small{}$\forall\overrightarrow{u}\in E,\ N(\overrightarrow{u})=0\Rightarrow\overrightarrow{u}=\overrightarrow{0}$}%
+\end{minipage}\tabularnewline
+\hline 
+H & {\small{}Homogénéité} & {\small{}$\forall(\lambda,\ \overrightarrow{u})\in\R\times E,\ N(\lambda.\overrightarrow{u})=|\lambda|.N(\overrightarrow{u})$}\tabularnewline
+\hline 
+I & {\small{}Inégalité triangulaire} & {\small{}$\forall(\overrightarrow{u},\ \overrightarrow{v})\in E^{2},\ N(\overrightarrow{u}+\overrightarrow{v})\leqslant N(\overrightarrow{u})+N(\overrightarrow{v})$}\tabularnewline
+\hline 
+\end{tabular}%
+\end{minipage}%
+\end{minipage}\\
+\begin{minipage}[t]{0.98\columnwidth}%
+{\small{}Je vous donne quand même le début d'une des preuves pour
+que vous ne vous contentiez pas d'affirmations péremptoires ``il
+est évident que'' :}\\
+{\small{}on se donne $f$ et $g$ ; pour tout $x$, on a : $|f(x)+g(x)|\leqslant|f(x)|+|g(x)|\leqslant||f||+||g||$
+et ensuite, à vous de rédiger avec des mots et pas avec des trucs
+dont vous dites que c'est des maths...}%
+\end{minipage}\\
+\nq Pour $f$ dans $E$, on pose $L(f)=Sup\Big\{\dsp\frac{|f(b)-f(a)|}{|b-a|}\ |\ 0\leqslant a<b\leqslant1\Big\}$.
+Montrez que $L$ est une semi norme sur $(E,+,.)$ \emph{\small{}(semi-norme,
+c'est EPHI)}.\\
+\nq Montrez pour $f$ de classe $C^{1}$ : $L(f)=||f'||$. \emph{\small{}Et
+si vous préférez des photos de François-Xavier, j'ai aussi.}\\
+\nq Calculez la norme $||f||$ et la semi-norme pour les applications
+suivantes : \\
+\begin{tabular*}{1\columnwidth}{@{\extracolsep{\fill}}|c|c|c|c|c|}
+\hline 
+$s_{n}=\theta\associe\sin(n.\theta)$ & $c_{n}=\theta\associe\cos(n.\theta)$ & $x\associe x^{n}$ & $x\associe|2.x-1|$ & $x\associe\ln(1+x)$\tabularnewline
+\hline 
+\end{tabular*}\\
+\nq Montrez que $f\associe|f(0)|+L(f)$ est une norme \emph{\small{}(notée
+$\Lambda$)}. Montrez pour tout $f$ de $||f||\leqslant\Lambda(f)$.
+Existe-t-il $K$ vérifiant $\forall f\in E,\ L(f)\leqslant K.||f||$
+.\\
+
+\trait\nqp Une suite $(f_{n})$ d'éléments de $E$ vérifie $\forall\varepsilon,\ \exists K_{\varepsilon},\ \forall(p,q),\ K_{\varepsilon\leqslant}p\leqslant q\Rightarrow L(f_{p}-f_{q})\leqslant\varepsilon$.
+Montrez que pour tout $x$ de $[0,\ 1]$, la suite $(f_{n}(x))$ converge
+vers un réel que l'on va noter $f(x)$.\\
+\nq Montrez que $f$ ainsi définie (limite des $f_{n}$) est dans
+$E$.\\
+
+\trait\nqp Pour tout $x$ de $[0,\ 1]$ et tout $n$ on pose $F_{n+1}(x)=F_{n}(x)+\dsp\frac{x-(F_{n}(x))^{2}}{2}$
+et $F_{0}(x)=0$. Montrez que chaque $F_{n}$ est un polynôme et donnez
+son degré. Chaque $P_{n}$ est il dans $E$ ?\\
+\nq Montrez que la suite $(F_{n}(x))$ est croissante majorée et
+converge (étudiez $t\associe\dsp t+\frac{x-t^{2}}{2}$ sur $[0,\ 1]$).\\
+\nq La limite des $P_{n}$ est elle dans $E$ ?\\
+
+\end{document}
