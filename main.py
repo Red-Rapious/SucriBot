@@ -14,6 +14,7 @@ admin_id = bot_config.ADMIN_ID
 serveur_id = bot_config.SERVEUR_ID
 eleve_id  = bot_config.ELEVES_ID
 general_sans_profs = bot_config.GENERAL_SANS_PROFS_ID
+tdgrp1_id = bot_config.TD_GRP_1_ID
 tokennn = bot_config.TOKEN
 
 pause_vacances = True # si pause_vacances est activé, il n'y aura pas de rappel de livres
@@ -95,7 +96,8 @@ async def reaction(idd,emos): #fonction pour mettre un emote avec l'id d'un mess
     for emo in emos:
         await msgg.add_reaction(emoji.emojize(emo))
 
-async def appel(msg): #
+async def appel(msg):
+    """ Fait l'appel dans un salon vocal. Cette commande ne peut être exécutée que par un professeur. """
     admin_user = await client.fetch_user(admin_id)
     await client.wait_until_ready()
     ctx = msg.author
@@ -137,29 +139,32 @@ async def appel(msg): #
         print(len(message))
         await ctx.send(message)
         if ctx != admin_user:
-            #await admin_user.send(ctx.name + " demande l'appel")
             await log(ctx.name + " demande l'appel", True)
     else:
         await ctx.send("Accès refusé, contactez Ajay Probst/Antoine Groudiev en cas d'erreur, désolé " + ctx.name)
         await log(ctx.name + " demande l'appel")
 
-async def rappel_livres(): # tag les élèves vers 19h tous les lundi et mardi pour leur rappeler de prendre leurs livres
+async def rappel_livres(): 
+  """ Tag les élèves vers 19h tous les lundi et mardi pour leur rappeler de prendre leurs livres """
   decalage = 2
   if not pause_vacances:
     message_send = datetime.datetime.now().hour == 19+1
     while True:
       today = datetime.datetime.now()
+      # Lundi soir : cours principaux
       if not message_send and (today.hour+decalage) == 19 and today.strftime("%A") == "Monday":
         channel = client.get_channel(general_sans_profs)
         await channel.send(":books: " + "<@" + eleve_id + ">"  + ", n\'oubliez pas vos livres de français ! :books:")
         await log("rappel à tous des livres de français")
         message_send = True
 
-      """if not message_send and (today.hour+decalage) == 19 and today.strftime("%A") == "Tuesday":
+      # Mardi soir : scéances de TD
+      # TODO: tag seulement les élèves concernés en fonction du colloscope
+      if not message_send and (today.hour+decalage) == 19 and today.strftime("%A") == "Tuesday":
         channel = client.get_channel(general_sans_profs)
         await channel.send(":books: " + "<@" + eleve_id + ">"  + ", n\'oubliez pas vos livres de français si vous avez TD ! :books:")
         await log("rappel au groupe de TD des livres de français")
-        message_send = True"""
+        message_send = True
 
       if today.hour == 18:
         message_send = False
@@ -170,7 +175,6 @@ async def rappel_livres(): # tag les élèves vers 19h tous les lundi et mardi p
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await log("le bot a démarré")
-    #activity = discord.Game(name="skribbl.io", type=3)
     activity = discord.Activity(type=discord.ActivityType.watching, name="$sucri help")
     await client.change_presence(status=discord.Status.online, activity=activity)
     await rappel_livres()
@@ -182,10 +186,6 @@ async def on_message(message):
     await client.wait_until_ready()
     if message.author == client.user:
         return
-
-    
-      #if not message.channel.type is discord.ChannelType.private:
-      #  await message.delete()
 
     if message.channel.type is discord.ChannelType.private: # en mp
         if msg.startswith('$sucri td') or msg.startswith("$sucri tp") or msg.startswith("td"):
@@ -300,15 +300,6 @@ async def on_message(message):
 
       elif msg.startswith('$sucri exo'):
           await message.channel.send("Voici un exo pour " +  surnom(client.get_guild(serveur_id) , message.author) + " : " + exo_aleatoire())
-          """
-          image_name = "images/exo.png"
-          sympy.preview(exo_aleatoire(), viewer='file', filename=image_name, euler=False)
-          with open(image_name, "rb") as fh:
-            f = discord.File(fh, filename=image_name)
-          await message.channel.send(file=f)
-          #await message.channel.send(",tex " + exo_aleatoire())
-          """
-          
 
       else:
           await message.author.send("Désolé, je ne sais pas faire :cry: \nPour avoir le mail d'un colleur, écris dans le chat **mail CODE_DU_COLLEUR** \nExemple : 'mail OK2'")
