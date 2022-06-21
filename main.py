@@ -230,10 +230,6 @@ async def on_message(message):
         elif msg.startswith('appel'):
             await appel(message)
             await log(str(message.author) + " demande l'appel")
-        
-        """elif message.author != admin_user:
-            await message.author.send("Désolé, je ne sais pas faire :cry: \nPour avoir le mail d'un colleur, écris dans le chat **mail CODE_DU_COLLEUR** \nExemple : 'mail OK2'")
-            await log(str(message.author) + " dit **" + msg + "**")"""
       
         if message.author == admin_user:
             if msg.startswith('publie'): #envoie un message sur un channel du serv
